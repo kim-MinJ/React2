@@ -1,10 +1,10 @@
 // Day1_06 : 부모컴포넌트가 자식에게 전달하는 데이터(프로퍼티) 연습
 //                  부모컴포넌트는 App4
-import '../css/TimeTableH.css'
-export default function TimeTableH({time, todo}) {
+import '../css/TimeTable.css'
+export default function TimeTableH({time, todo,title}) {
   return (
     <div>
-        <h3 className="title">오늘의 시간표</h3>
+        <h3 className="title">{title}</h3>
         <table>
           {/* 리액트에서는 tr 을 tbody, thead 부모요소 아래에 포함합니다. */}
             <tbody>
