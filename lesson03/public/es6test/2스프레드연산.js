@@ -5,7 +5,8 @@
 const kor = [90, 89, 77]
 const eng = [77, 88, 100]
 // 배열의 스프레드 연산 : 두개의 배열을 합쳐서 새로운 배열 만들 때
-const socres = [...kor, ...eng]
+const scores = [...kor, ...eng]
+console.log(scores)
 
 //객체에 스프레드연산 : 기존 객체 복사하여 새로운 객체를 생성할 때 사용
 //                                     새로운 속성값 추가 또는 기존 속성값 수정

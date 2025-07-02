@@ -28,7 +28,7 @@ function myFunction2(value){
 }
 
 console.log('filter-over15', over15)
-console.log('filter-over15', under15)
+console.log('filter-under15', under15)
 
 //3. reduce 메소드 : 배열의 각 요소값을 순서대로 실행한 수식 결과로 한개의 값
 let  sum = numbers1.reduce(myFunction3)
