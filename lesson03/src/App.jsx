@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+import TodoList from "./components/TodoList";
 
 export default function App() {
     // 할일 목록 배열
@@ -20,9 +22,6 @@ export default function App() {
     ];
     const [todos, setTodos] = useState(initVal);
     const maxid = useRef(todos.length + 1);
-  
-    console.log("todos:", todos);
-    const [value, setValue] = useState("");
   
     //🔥 상태변수 todos 변경
     function handleChecked(id) {
@@ -49,7 +48,14 @@ export default function App() {
       setTodos([...todos, todo]);
       maxid.current += 1;
     };
+  
   return (
-    <div>App</div>
+    <div>
+      <TodoList
+        todos={todos} 
+        onRemove={handleRemove} 
+        onChecked={handleChecked}
+        />
+    </div>
   )
 }

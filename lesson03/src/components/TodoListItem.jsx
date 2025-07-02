@@ -14,24 +14,23 @@ const {id, text, checked} = todo
     const yn = window.confirm(`일정 ${id}:${text}를 삭제하십니까?`);
     if (yn) onRemove(id);
     //🔥onRemove 함수 : 부모컴포넌트에게 props 로 전달 받음
-  };
+  }
 
   //🔥onChecked 함수 : 부모컴포넌트에게 props 로 전달 받음
 return (
-<div className="TodoListItem" key={idx}>
+<div className="TodoListItem">
                 <div
                   className={`checkbox ${checked ? "checked" : ""}`}
                   onClick={() => onChecked(id)}
                 >
-                  {checked ? <MdCheckBoxckBox /> : <MdCheckBoxOutlineBlankckBoxOutlineBlank />}
+                  {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
                   <div className="text">{text}</div>
                 </div>
                 <div
                   className="remove"
                   onClick={() => handleButton(id, text)}
                 >
-                  {/*  ()=> onRemove(id)  대신에 handleButton 함수 호출합니다.*/}
-                  <MdRemoveCircleOutlinetline />
+                  <MdRemoveCircleOutline />
                 </div>
               </div>
   )
