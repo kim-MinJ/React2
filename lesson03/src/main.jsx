@@ -1,15 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App'
-// import App from './App_V1'
-// import App from './App.jsx'
-// import App from "./ArrayTest.jsx"
+// import App from './App'   // 최종
+import App from './App_V1'
+import { EffectAndRef, FocusInput, PreviousValue } from './RefHookTest'
+// import App from "./ArrayTest";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
-    {/* <App/> */}
-    <App/>
-  </StrictMode>,
+    {/* ref 훅 테스트 */}
+    <EffectAndRef/>
+    <PreviousValue />
+  </StrictMode>
 )

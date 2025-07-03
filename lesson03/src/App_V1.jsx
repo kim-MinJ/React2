@@ -10,9 +10,16 @@ import {
   MdRemoveCircleOutline,
 } from "react-icons/md";
 
+//Day3_02 : 배열 상태값 변경을 UI 로 구현
+//    => components 폴더에서 컴포넌트로 만들어서 리팩토링
+//          (Day3_03)
+
 // 추가 패키지 설치 :   npm install sass react-icons
 
 function App() {
+    const renderCount = useRef(0) //useRef의 리액트 함수(훅)
+  renderCount.current +=1
+
   // 할일 목록 배열
   const initVal = [
     {
@@ -30,7 +37,7 @@ function App() {
       text: "데이터베이스 테스트",
       checked: true,
     },
-  ];
+  ]
   const [todos, setTodos] = useState(initVal);
   const maxid = useRef(todos.length + 1);
 
@@ -137,6 +144,7 @@ function App() {
           </div>
         </div>
       </div>
+      <div>렌더링 카운트 : {renderCount.current}</div>
     </div>
   );
 }
