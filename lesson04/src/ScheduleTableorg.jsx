@@ -1,62 +1,30 @@
 import { useState } from "react";
 
-const schedules = [
-    {
-    date: "2025-07-01",
-    todos: [
-      {
-        time: "09:00",
-        text: "리액트 수업 복습",
-        checked: true
-      },
-      {
-        time: "11:00",
-        text: "리액트 프로젝트 기획",
-        checked: true
-      },
-      {
-        time: "16:20",
-        text: "데이터베이스 테스트",
-        checked: false
-      }
-    ]
-  },
-  {
-    date: "2025-07-06",
-    todos: [
-      {
-        time: "09:40",
-        text: "자바 클래스 ",
-        checked: false
-      },
-      {
-        time: "12:00",
-        text: "운동",
-        checked: false
-      },
-      {
-        time: "13:50",
-        text: "데이터베이스 구축",
-        checked: false
-      }
-    ]
-  },
-  {
-    date: "2025-07-09",
-    todos: [
-      {
-        time: "11:20",
-        text: "AI 프로젝트",
-        checked: false
-      },
-      {
-        time: "14:00",
-        text: "팀프로젝트 회의",
-        checked: false
-      }
-    ]
-  }
-]
+const date1 = {
+  date: "2025-06-30",
+  time: ["09:00", "11:00", "12:30", "14:00", "16:45"],
+  todo: ["수업", "과제", "점심식사", "주간회의", "자료조사"],
+};
+
+const date2 = {
+  date: "2025-07-01",
+  time: ["08:00", "10:00", "11:20", "14:00", "15:00", "17:00"],
+  todo: ["수업", "회의", "점심식사", "운동", "업무", "친구약속"],
+};
+
+const date3 = {
+  date: "2025-07-03",
+  time: ["09:00", "11:00", "12:30", "14:00", "16:45"],
+  todo: ["수업", "과제", "점심식사", "주간회의", "자료조사"],
+};
+
+const date4 = {
+  date: "2025-07-05",
+  time: ["08:00", "10:00", "11:20", "14:00", "15:00", "17:00"],
+  todo: ["수업", "회의", "점심식사", "운동", "업무", "친구약속"],
+};
+
+const schedules = [date1, date2, date3, date4];
 
 export default function ScheduleTable() {
   const [schedule, setSchedule] = useState(schedules[0]);
@@ -105,7 +73,7 @@ export default function ScheduleTable() {
             >
               TIME
             </th>
-            {schedule.todos.map((t, idx) => (
+            {schedule.time.map((t, idx) => (
               <th
                 key={`time-${idx}`}
                 style={{
@@ -114,7 +82,7 @@ export default function ScheduleTable() {
                   textAlign: "center",
                 }}
               >
-                {t.time}
+                {t}
               </th>
             ))}
           </tr>
@@ -131,12 +99,12 @@ export default function ScheduleTable() {
             >
               TODO
             </td>
-            {schedule.todos.map((t, idx) => (
+            {schedule.todo.map((t, idx) => (
               <td
                 key={`todo-${idx}`}
                 style={{ padding: "10px", textAlign: "center" }}
               >
-                {t.text}
+                {t}
               </td>
             ))}
           </tr>

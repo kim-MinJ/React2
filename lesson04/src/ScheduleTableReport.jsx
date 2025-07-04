@@ -57,12 +57,13 @@ const schedules = [
     ]
   }
 ]
+//schedule 는 상태 변수. 버튼을 클릭할 때마다 
 
-export default function ScheduleTable() {
+export default function ScheduleTableReport() {
   const [schedule, setSchedule] = useState(schedules[0]);
 
   const handleSelected = (idx) => {
-    setSchedule(schedules[idx]);
+    setSchedule(schedules[idx.date]);
   };
 
   return (
@@ -71,7 +72,6 @@ export default function ScheduleTable() {
       style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}
     >
       <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-        {/* sch 객체는 date, time(배열), todo(배열) */}
         {schedules.map((sch, idx) => (
           <button
             key={idx}
@@ -92,7 +92,7 @@ export default function ScheduleTable() {
         ))}
       </div>
       <hr />
-      <h3 style={{ color: "#333", marginBottom: "1rem" }}>{schedule.date}</h3>
+      <h3 style={{ color: "#333", marginBottom: "1rem" }}>{schedules.date}</h3>
       <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
@@ -114,7 +114,7 @@ export default function ScheduleTable() {
                   textAlign: "center",
                 }}
               >
-                {t.time}
+                {t(0)}
               </th>
             ))}
           </tr>
@@ -133,10 +133,10 @@ export default function ScheduleTable() {
             </td>
             {schedule.todos.map((t, idx) => (
               <td
-                key={`todo-${idx}`}
+                key={`text-${idx}`}
                 style={{ padding: "10px", textAlign: "center" }}
               >
-                {t.text}
+                {t(1)}
               </td>
             ))}
           </tr>
