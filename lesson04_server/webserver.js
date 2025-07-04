@@ -2,6 +2,8 @@ import express, {json} from 'express'
 import { MongoClient } from 'mongodb'
 import cors from 'cors'
 
+// nodejs 백엔드(WAS) <-> 몽고DB 서버
+
 //웹프레임워크(서버) 실행을 위한 객체 생성
 const app = express()
 const PORT = 5000 //클라이언트 -> nodejs 백엔드 서버 연결 포드
@@ -48,7 +50,7 @@ app.post('/api/todos', async (req, res) => {
         const {text} = req.body  //req.body 는 요청 받은 데이터.
 
         const maxTodo = await db.collection(COLLECTION_NAME)
-                                    .findOne({}, {sort:{id: -1}})
+                                    .findOne({}, {sort: {id: -1}})
         const newId = maxTodo? maxTodo.id+1 : 1
 
         const newTodo = {
@@ -77,14 +79,14 @@ app.put('/api/todos/:id', async(req,res) => {
     // :id 는 파라미터 이름. url 로 변수값을 전달하는 방법
     try {
         const todoId = Number(req.params.id)
-        const {checked, id: newId } = req.body
+        const {checked/*, id: newId*/ } = req.body
 
         const result = await db.collection(COLLECTION_NAME)
         .updateOne(
             {id: todoId}, 
             {
                 $set: {
-                    checked: checked, id: newId
+                    checked: checked/*, id: newId */
                 }
             }
         )
