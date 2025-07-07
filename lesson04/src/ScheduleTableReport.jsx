@@ -114,7 +114,7 @@ export default function ScheduleTableReport() {
                   textAlign: "center",
                 }}
               >
-                {t(0)}
+                {t.time}
               </th>
             ))}
           </tr>
@@ -136,7 +136,7 @@ export default function ScheduleTableReport() {
                 key={`text-${idx}`}
                 style={{ padding: "10px", textAlign: "center" }}
               >
-                {t(1)}
+                {t.text}
               </td>
             ))}
           </tr>
