@@ -48,7 +48,9 @@ curl -X PUT http://localhost:5000/api/todos/33 ^
       setLoading(true)
       const options = {
         method: 'PUT',
+        // 서버로 전송하는 데이터의 유형이 json 
         headers: { 'Content-Type': 'application/json' },
+        // JS 객체를 json 문자열로 변환하여 전송
         body: JSON.stringify({ checked: newChecked })
       }
       // 백엔드 서버를 통해 db값 변경
@@ -81,6 +83,7 @@ curl -X PUT http://localhost:5000/api/todos/33 ^
       const resp = await fetch(`${API_BASE_URL}/${id}`, { method: 'DELETE' })
       if (resp.ok) {
         // 재렌더링을 위해 상태값 todos 변경
+//        const newtodos = fetchTodos()로도 가능
         const newtodos = todos.filter((item) => item.id !== id)
         setTodos(newtodos)
       } else {
@@ -120,7 +123,7 @@ curl -X PUT http://localhost:5000/api/todos/33 ^
         setTodos([...todos, newTodo])
       } else {
         console.error('데이터 todo 추가 실패!!!')
-      }
+      } 
     } catch (error) {
       console.error('네트워크 오류:', error)
     } finally {
