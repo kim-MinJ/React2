@@ -42,3 +42,7 @@ setTodos([...todos, newTodo])  //새로운 배열을 만들 때, 원래 todos �
 			   // setTodos(todos.concat(newTodo)
 
 공통적으로 바뀌는 state 상태값을 찾아보세요. =>todos 배열  ※ 표시로 설형
+
+curl -X PUT http://localhost:5001/api/schedules/2025-07-11 ^
+  -H "Content-Type: application/json" ^
+  -d "{  \"time\": \"08:00\", \"text\": \"운동\", \"checked\": false }"
