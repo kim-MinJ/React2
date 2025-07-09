@@ -10,6 +10,7 @@ import TodoTemplate from "./components/TodoTemplate";
 export default function App() {
   const renderCount = useRef(0) //useRef의 리액트 함수(훅)
   renderCount.current +=1
+    const [date, setDate]=useState('')
   // 변경해도 컴포넌트를 리렌더링하지 않음. useState 처럼 재렌더링 했을 때 값 유지
  //일반 변수는 재렌더링할 떄 초기값 0부터 시작 but useRef는 재렌더링할 때 이전 값 유지
 
@@ -60,6 +61,8 @@ export default function App() {
       setTodos([...todos, todo]);
       maxid.current += 1;
     };
+
+ 
   
   return (
     <div>
@@ -67,14 +70,17 @@ export default function App() {
           {/* TodoInsert, TodoList 컴포넌트 
           => TodoTemplate 컴포넌트의 children 속성으로 사용할 수 있습니다. */}
           {/* 속성이름은 개발자가 정합니다. 속성의 값은 정의 된 것으로 해야합니다. */}
+<h2>{date}</h2>
           <TodoInsert onInsert={handleInsert}/>
           <TodoList
             todos={todos}
             onRemove={handleRemove}
             onChecked={handleChecked}
             />
+        <hr />
+        <input type="date" value={date}
+         onChange={(e) => setDate(e.target.value)}/>
         </TodoTemplate>
-        <div> 렌더링 카운트 : {renderCount.current}</div>
     </div>
   )
 }
