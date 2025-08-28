@@ -8,7 +8,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
     {/* useState 복습 */}
-    <ScheduleTable/>
+    {/* <ScheduleTable/> */}
     {/* <ScheduleTableReport/> */}
-  </StrictMode>,
+  </StrictMode>
 )
